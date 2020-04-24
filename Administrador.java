@@ -2,8 +2,9 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class Administrador {
-    Profesor[] profesores = new Profesor[20]; // 20 profesores
-    Hashtable<Integer,Alumno> alumnosTotales;
+    int MAX_VACANTES = 20;// numero maximo de vacantes de profesores
+    Profesor[] profesores = new Profesor[MAX_VACANTES]; 
+    Hashtable<Integer,Alumno> alumnosTotales; // <ID_alumno, Alumno>
     // listas por area:
     ArrayList<Alumno> fisicoMatematicas;
     ArrayList<Alumno> biologicasYsalud;
@@ -11,7 +12,7 @@ public class Administrador {
     ArrayList<Alumno> humanidadesYartes;
     //-----------------
     // listas por grupo:
-    
+
 
     // Patron Singleton 
     private static Administrador instance = null;
@@ -47,12 +48,12 @@ public class Administrador {
         this.fisicoMatematicas = fisicoMatematicas;
     }
 
-    public ArrayList<Alumno> getMedicoBiologicas() {
-        return medicoBiologicas;
+    public ArrayList<Alumno> getBiologicasYsalud() {
+        return biologicasYsalud;
     }
 
-    public void setMedicoBiologicas(ArrayList<Alumno> medicoBiologicas) {
-        this.medicoBiologicas = medicoBiologicas;
+    public void setBiologicasYsalud(ArrayList<Alumno> biologicasYsalud) {
+        this.biologicasYsalud = biologicasYsalud;
     }
 
     public ArrayList<Alumno> getCienciasSociales() {

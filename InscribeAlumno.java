@@ -32,12 +32,16 @@ public class InscribeAlumno {
                 break;
         }
 
-        // agregar al grupo 
+        // agrega al alumno a las listas de los profesores de cada materia
+        // del grupo correspondiente (A o B)
         Iterador<Profesor> ite = new Iterador<>(admin.profesores);
 
-        
-
-        
+        while (ite.hasNext()) {
+            Profesor profeActual = ite.next();
+            if (profeActual.area == area & profeActual.grupo == grupo) {
+                profeActual.agregaAlumnoALista(a);
+            }
+        }     
 
         
     }

@@ -4,7 +4,7 @@ public class Profesor {
     int id;
     String nombre;
     HashMap<Integer,Integer> id_Calif ;
-    String area;
+    int area;
     String materia;
     char grupo;
 
@@ -12,7 +12,7 @@ public class Profesor {
         this.id = IdGen.getInstance().getUniqueId();
     }
 
-    public Profesor(String nombre, HashMap<Integer, Integer> id_Calif, String area, String materia, char grupo) {
+    public Profesor(String nombre, HashMap<Integer, Integer> id_Calif, int area, String materia, char grupo) {
         this.id = IdGen.getInstance().getUniqueId();
         this.nombre = nombre;
         this.id_Calif = id_Calif;
@@ -45,11 +45,11 @@ public class Profesor {
         this.id_Calif = id_Calif;
     }
 
-    public String getArea() {
+    public int getArea() {
         return area;
     }
 
-    public void setArea(String area) {
+    public void setArea(int area) {
         this.area = area;
     }
 
@@ -67,6 +67,18 @@ public class Profesor {
 
     public void setGrupo(char grupo) {
         this.grupo = grupo;
+    }
+
+    public void agregaAlumnoALista(Alumno a){
+        id_Calif.put(a.id, 0);
+    }
+
+    public void asignaCalifByID(int id, int calif){
+        id_Calif.put(id, calif);
+    }
+
+    public void asignaCalifAlumno(Alumno a, int calif){
+        id_Calif.put(a.id, calif);
     }
 
     
