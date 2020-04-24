@@ -1,3 +1,5 @@
+import java.util.Hashtable;
+import java.util.Map;
 import java.util.Scanner;
 
 public class SesionAdministrador implements MenuSesion<Administrador> {
@@ -25,6 +27,14 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
     
             switch (opcion) {
                 case 1:
+                    Hashtable<Integer, Alumno> alumnos = usuario.getAlumnosTotales();
+                   
+                    for (Map.Entry<Integer, Alumno> entry : alumnos.entrySet()) {
+                        int key = entry.getKey();
+                        String value = entry.getValue().getNombre();
+                    
+                        System.out.println ("id: " + key + " Nombre: " + value);
+                    }
                     
                     break;
                 
@@ -33,6 +43,15 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
                     break;
                 
                 case 3:
+                    Hashtable<String,String> ot = usuario.getOpcionesTecnicas();
+                    
+                    for (Map.Entry<String, String> entry : ot.entrySet()) {
+                        String key = entry.getKey();
+                        String value = entry.getValue();
+                        System.out.println ("Nombe: " + key + " OpcionTecnica: " + value);
+                    }
+                    
+                     
                     
                     break;
                 
@@ -65,6 +84,15 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
                     break;
                 
                 case 7:
+                    System.out.println("Ingrese el ID del alumno a dar de baja:");
+                    int idBaja = scr.nextInt();
+                    Alumno a = admin.getAlumnosTotales().get(idBaja);
+                    BajaAlumno ba = new BajaAlumno();
+                    if (a != null) {
+                        ba.elimina(a);
+                        break;
+                    }
+                    System.out.println("Usuario no encontrado");
                     
                     break;
 

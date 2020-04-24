@@ -11,7 +11,8 @@ public class Administrador {
     ArrayList<Alumno> cienciasSociales;
     ArrayList<Alumno> humanidadesYartes;
     //-----------------
-    // listas por grupo:
+    // lista alumnos con opcion tecnica:
+    Hashtable<String,String> opcionesTecnicas; // <NombreAlumno, OpcionTecnica>
 
 
     // Patron Singleton 
@@ -74,6 +75,14 @@ public class Administrador {
 
     public static void setInstance(Administrador instance) {
         Administrador.instance = instance;
+    }
+
+    public Hashtable<String, String> getOpcionesTecnicas() {
+        return opcionesTecnicas;
+    }
+
+    public void setOpcionesTecnicas(Hashtable<String, String> opcionesTecnicas) {
+        this.opcionesTecnicas = opcionesTecnicas;
     }
 
     

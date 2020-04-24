@@ -15,11 +15,11 @@ public interface Controlador {
         s.agregaMaestros();
         // agrega alumnos
         s.agregaAlumnos();
-        
+
 
         // inicia sesion
-        Sesion a = new Sesion();
-        a.bienvenida();
+        //Sesion a = new Sesion();
+        Sesion.bienvenida();
 
     }
 

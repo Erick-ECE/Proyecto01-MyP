@@ -96,7 +96,7 @@ public class Alumno  {
     public void setArea(int area) {
         this.area = area;
     }
-    .toLowerCase();
+    
     public char getGrupo() {
         return grupo;
     }

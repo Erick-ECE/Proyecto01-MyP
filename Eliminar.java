@@ -2,6 +2,6 @@
 public interface Eliminar<T> {
     Administrador admin = Administrador.getInstance();
 
-    public void darDeBaja(T usuario);
+    public  void elimina(T usuario);
 
 }
