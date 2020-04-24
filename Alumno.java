@@ -2,29 +2,30 @@
 import java.util.Enumeration;
 import java.util.Hashtable;
 
-
-public class Alumno  {
+public class Alumno {
     int id;
     String nombre;
-    Hashtable<String,Integer> materiacalif;
+    Hashtable<String, Integer> materiacalif;
     String opcionTecnica;
     Double promedio;
-    int area; // 1.- Fisico-Matematico 2.- Biologicas Y de la Salud 3.-Ciencias Sociales 4.- Humanidades y Artes
+    int area; // 1.- Fisico-Matematico 2.- Biologicas Y de la Salud 3.-Ciencias Sociales 4.-
+              // Humanidades y Artes
     char grupo;
 
     Enumeration<Integer> enu = materiacalif.elements();
 
-    /**constructor vacío */
-    public Alumno(){} 
-    
-    /**Constrictor para alumno sin opcion tecnica */
+    /** constructor vacío */
+    public Alumno() {
+    }
+
+    /** Constrictor para alumno sin opcion tecnica */
     public Alumno(String nombre, int area, char grupo) {
         this.nombre = nombre;
         this.area = area;
         this.grupo = grupo;
     }
 
-    /**Constructor para alumno con  opcion tecnica */
+    /** Constructor para alumno con opcion tecnica */
     public Alumno(String nombre, String opcionTecnica, int area, char grupo) {
         this.nombre = nombre;
         this.opcionTecnica = opcionTecnica;
@@ -32,13 +33,13 @@ public class Alumno  {
         this.grupo = grupo;
     }
 
-    /**calcula el promedio de las materias inscritas del alumno */
+    /** calcula el promedio de las materias inscritas del alumno */
     public Double calculatePromedio() {
-        int temp=0;
-        while (enu.hasMoreElements()) { 
-            temp = temp + (int)enu.nextElement(); 
-        } 
-        return (double) temp/materiacalif.size();
+        int temp = 0;
+        while (enu.hasMoreElements()) {
+            temp = temp + (int) enu.nextElement();
+        }
+        return (double) temp / materiacalif.size();
     }
 
     public int getId() {
@@ -96,7 +97,7 @@ public class Alumno  {
     public void setArea(int area) {
         this.area = area;
     }
-    
+
     public char getGrupo() {
         return grupo;
     }
@@ -106,8 +107,20 @@ public class Alumno  {
     }
 
     /** verifica si el alumno inscribio opcion tecnica */
-    public boolean tieneOpcionTecnica(){
+    public boolean tieneOpcionTecnica() {
         return opcionTecnica != null;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("-----------------");
+        sb.append("ID : ").append(this.id).append("\n");
+        sb.append("Nombre : ").append(this.nombre).append("\n");
+        sb.append("-----------------");
+        return sb.toString();
+    }
+
+    
    
 }

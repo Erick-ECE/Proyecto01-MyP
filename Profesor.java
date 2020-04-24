@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class Profesor {
     int id;
     String nombre;
-    HashMap<Integer,Integer> id_Calif ;
+    HashMap<Integer, Integer> id_Calif;
     int area;
     String materia;
     char grupo;
@@ -69,16 +69,25 @@ public class Profesor {
         this.grupo = grupo;
     }
 
-    public void agregaAlumnoALista(Alumno a){
+    public void agregaAlumnoALista(Alumno a) {
         id_Calif.put(a.id, 0);
     }
 
-    public void asignaCalifByID(int id, int calif){
+    public void asignaCalifByID(int id, int calif) {
         id_Calif.put(id, calif);
     }
 
-    public void asignaCalifAlumno(Alumno a, int calif){
+    public void asignaCalifAlumno(Alumno a, int calif) {
         id_Calif.put(a.id, calif);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("ID : ").append(this.id).append("\n");
+        sb.append("Nombre : ").append(this.nombre).append("\n");
+        sb.append("Materia : ").append(this.materia).append("\n");
+        return sb.toString();
     }
 
     

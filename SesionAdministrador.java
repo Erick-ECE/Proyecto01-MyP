@@ -7,6 +7,7 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
     @Override
     public void opcionesMenu(Administrador usuario) {
         int opcion;
+        ContextoElimina c = null;
         
         System.out.println("Binevenido Administrador!");
 
@@ -56,6 +57,8 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
                     break;
                 
                 case 4:
+                    Iterador<Profesor> ite = new Iterador<>(usuario.getProfesores());
+                    ite.forEachRemaining(System.out::println);      
                     
                     break;
 
@@ -76,14 +79,19 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
                     System.out.println("Grupo(A o B):");
                     char nuevoGrupo = scr.next().charAt(0);
 
-                    Alumno nuevoAlumno = new Alumno(nombreNuevo,areaAlumno,nuevoGrupo);
-                    InscribeAlumno ins = new InscribeAlumno();
-                    ins.inscribir(nuevoAlumno);
+                     //* Inscribe Alumno Estatico */
+                     InscribeAlumno.inscribir(new Alumno(nombreNuevo,areaAlumno,nuevoGrupo));
+
+                    // *Sí InscribeAlumno no es estatico:*
+                    //Alumno nuevoAlumno = new Alumno(nombreNuevo,areaAlumno,nuevoGrupo);
+                    //InscribeAlumno ins = new InscribeAlumno();
+                    //ins.inscribir(nuevoAlumno);
 
                     
                     break;
                 
-                case 7:
+                case 7:// Dar de baja un alumno:
+                    /* *SIN PATRON STRATEGY:*
                     System.out.println("Ingrese el ID del alumno a dar de baja:");
                     int idBaja = scr.nextInt();
                     Alumno a = admin.getAlumnosTotales().get(idBaja);
@@ -93,15 +101,29 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
                         break;
                     }
                     System.out.println("Usuario no encontrado");
-                    
+                    */
+
+                    // USANDO STRATEGY:
+                    System.out.println("Ingrese el ID del alumno a dar de baja:");
+                    int idBaja = scr.nextInt();
+
+                    c = new ContextoElimina(new BajaAlumno());  
+                    c.ejecutaOperacion(idBaja);
+            
                     break;
 
                 case 8:
                     
                     break;
 
-                case 9:
-                    
+                case 9: // Despedir Profesor
+                    /** USANDO STRATEGY : */
+                    System.out.println("Ingrese el ID del Profesor a dar de baja:");
+                    int idProfe = scr.nextInt();
+
+                    c = new ContextoElimina(new DespedirProfesor());
+                    c.ejecutaOperacion(idProfe);
+
                     break;
 
 

@@ -3,9 +3,9 @@
  * registra un nuevo alumno en las listas correspondientes
  */
 public class InscribeAlumno {
-    Administrador admin = Administrador.getInstance();
+    private static Administrador admin = Administrador.getInstance();
 
-    public void inscribir(Alumno a){
+    public static void inscribir(Alumno a){
         int area= a.area;
         char grupo = a.grupo;
 
@@ -44,6 +44,11 @@ public class InscribeAlumno {
         }     
 
         
+    }
+
+    // metodo a considerar implementar
+    public String mensajeOk(){
+        return "ok(?)";
     }
 
 }
