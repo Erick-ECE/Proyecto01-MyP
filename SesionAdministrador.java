@@ -45,6 +45,22 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
                     break;
 
                 case 6:
+                    System.out.println("Ingrese los datos que se piden del Alumno");
+                    System.out.println("Nombre:");
+                    String nombreNuevo = scr.nextLine();
+                    System.out.println("Area de Estudio :");
+                    System.out.println("    1.-Físico-Matemáticas.");
+                    System.out.println("    2.-Ciencias Biológicas y de la Salud.");
+                    System.out.println("    3.-Ciencias Sociales.");
+                    System.out.println("    4.-Humanidades y Artes.");
+                    int areaAlumno = scr.nextInt();
+                    System.out.println("Grupo(A o B):");
+                    char nuevoGrupo = scr.next().charAt(0);
+
+                    Alumno nuevoAlumno = new Alumno(nombreNuevo,areaAlumno,nuevoGrupo);
+                    InscribeAlumno ins = new InscribeAlumno();
+                    ins.inscribir(nuevoAlumno);
+
                     
                     break;
                 
