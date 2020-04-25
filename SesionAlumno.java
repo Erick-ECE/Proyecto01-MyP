@@ -1,4 +1,6 @@
-import java.util.Scanner;
+//import java.util.Set;
+
+//import java.util.Scanner;
 
 public class SesionAlumno implements MenuSesion<Alumno> {
 
@@ -20,14 +22,22 @@ public class SesionAlumno implements MenuSesion<Alumno> {
     
             switch (opcion) {
                 case 1:
+                    System.out.println("Ingrese el numero de la opcion deseada:");
+                    String[] keys = (String[]) usuario.getMateriacalif().keySet().toArray();
+                    System.out.println("    1.-" + keys[0]);
+                    System.out.println("    2.-" + keys[1]);
+                    String materia = (scr.nextInt() == 1) ? keys[0] : keys[1];
+                    System.out.printf("Calificacion %s: %d",materia, usuario.getMateriacalif().get(materia)); 
                     
                     break;
                 
                 case 2:
+                    System.out.println("Promedio: "+ usuario.calculatePromedio());
                     
                     break;
                 
                 case 3:
+                    InscribeOpcionTecnica.inscribeOpcionTecnica(usuario);
                     
                     break;
 
