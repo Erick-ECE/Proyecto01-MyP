@@ -1,5 +1,6 @@
 import java.util.Hashtable;
-import java.util.Map.Entry;
+import java.util.Map;
+//import java.util.Map.Entry;
 
 public class SesionProfesor implements MenuSesion<Profesor> {
 
@@ -25,7 +26,7 @@ public class SesionProfesor implements MenuSesion<Profesor> {
                     System.out.println("Grupo: " + usuario.grupo);
                     Hashtable<Integer, Integer> alumnos = usuario.getId_Calif();
 
-                    for (Entry<Integer, Integer> entry : alumnos.entrySet()) {
+                    for (Map.Entry<Integer, Integer> entry : alumnos.entrySet()) {
                         int key = entry.getKey();
                         int value = entry.getValue();
                     
@@ -38,12 +39,13 @@ public class SesionProfesor implements MenuSesion<Profesor> {
                 System.out.println("Ingresa la calificacion de cada alumno:");
                 Hashtable<Integer, Integer> alumnosCalificacion = usuario.getId_Calif();
 
-                for (Entry<Integer, Integer> entry : alumnosCalificacion.entrySet()) {
+                for (Map.Entry<Integer, Integer> entry : alumnosCalificacion.entrySet()) {
                     int key = entry.getKey();
                     System.out.println ("ID Alumno: " + key);
                     System.out.print(" Calificación: ");
                     int calif =scr.nextInt();
                     entry.setValue(calif);
+                    //usuario.asignaCalifByID(key, calif);
                 }
                     
                     break;

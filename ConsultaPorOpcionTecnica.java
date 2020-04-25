@@ -8,7 +8,7 @@ public class ConsultaPorOpcionTecnica implements Consulta {
             case 1: // Agente de viajes y hotelería.
                 Iterator<Alumno> iter = admin.viajesyhoteleria.iterator();
                 iter.forEachRemaining(System.out::println);
-
+                
                 break;
         
             case 2: // Fotógrafo, Laboratorista y Prensa.

@@ -13,7 +13,7 @@ public class IdGen {
         return instance;
     }
 
-    private int nextID = 0;
+    private int nextID = 1;
 
     public int getUniqueId() {
         if (nextID < 0) {

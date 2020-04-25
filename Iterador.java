@@ -10,7 +10,8 @@ public class Iterador<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        return arreglo.length > i;
+        //return arreglo.length > i;
+        return (arreglo[i] != null) & arreglo.length > i ;
     }
 
     @Override

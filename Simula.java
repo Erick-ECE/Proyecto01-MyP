@@ -52,6 +52,9 @@ public class Simula {
         Alumno a6 = new Alumno("Angel",1,'A');
         Alumno a7 = new Alumno("Cesar",1,'A');
         Alumno a8 = new Alumno("Braulio",1,'A');
+        //System.out.println("ID TEST: " + a1.getId()); // test
+        //System.out.println(a1);//------------------test
+        //System.out.println(Administrador.getInstance().getProfesores()[0]);// test
         InscribeAlumno.inscribir(a1);
         InscribeAlumno.inscribir(a2);
         InscribeAlumno.inscribir(a3);

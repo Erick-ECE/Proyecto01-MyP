@@ -1,6 +1,7 @@
+
+
 /**
- * Clase principal
- * controla la simulación del programa
+ * Clase principal controla la simulación del programa
  */
 
 public interface Controlador {
@@ -17,8 +18,6 @@ public interface Controlador {
         s.agregaAlumnos();
 
 
-        // inicia sesion
-        //Sesion a = new Sesion();
         Sesion.bienvenida();
 
     }

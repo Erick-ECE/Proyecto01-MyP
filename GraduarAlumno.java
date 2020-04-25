@@ -14,7 +14,7 @@ public class GraduarAlumno {
             String key = entry.getKey();
             int value = entry.getValue();
         
-            System.out.println ("Materia: " + key + " Calificacion: " + value);
+            System.out.println ("Materia: " + key + "       Calificacion: " + value);
         }
         System.out.println("Promedio: " + a.calculatePromedio());
         if(a.opcionTecnica != null){

@@ -7,18 +7,18 @@ public class Administrador {
     final int MAX_VACANTES = 20;// numero maximo de vacantes de profesores
     static int PROFES_CONTRATADOS = 0;
     Profesor[] profesores = new Profesor[MAX_VACANTES]; 
-    Hashtable<Integer,Alumno> alumnosTotales; // <ID_alumno, Alumno>
+    Hashtable<Integer,Alumno> alumnosTotales = new Hashtable<>(); // <ID_alumno, Alumno>
     // listas por area:
-    ArrayList<Alumno> fisicoMatematicas;
-    ArrayList<Alumno> biologicasYsalud;
-    ArrayList<Alumno> cienciasSociales;
-    ArrayList<Alumno> humanidadesYartes;
+    ArrayList<Alumno> fisicoMatematicas = new ArrayList<>();
+    ArrayList<Alumno> biologicasYsalud = new ArrayList<>();
+    ArrayList<Alumno> cienciasSociales = new ArrayList<>();
+    ArrayList<Alumno> humanidadesYartes = new ArrayList<>();
     //-----------------
     // lista alumnos por opcion tecnica:
-    ArrayList<Alumno> viajesyhoteleria; // Agente de viajes y hotelería.
-    ArrayList<Alumno> fotoLabPrensa; // Fotógrafo, Laboratorista y Prensa.
-    ArrayList<Alumno> nutriologo; // Nutriólogo.
-    ArrayList<Alumno> labQuimico; // Laboratorista Químico.
+    ArrayList<Alumno> viajesyhoteleria = new ArrayList<>(); // Agente de viajes y hotelería.
+    ArrayList<Alumno> fotoLabPrensa = new ArrayList<>(); // Fotógrafo, Laboratorista y Prensa.
+    ArrayList<Alumno> nutriologo = new ArrayList<>(); // Nutriólogo.
+    ArrayList<Alumno> labQuimico = new ArrayList<>(); // Laboratorista Químico.
 
     
 

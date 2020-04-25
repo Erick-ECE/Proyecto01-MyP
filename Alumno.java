@@ -12,14 +12,14 @@ public class Alumno {
               // Humanidades y Artes
     char grupo;
 
-    Enumeration<Integer> enu = materiacalif.elements();
-
     /** constructor vacío */
     public Alumno() {
+        this.id = IdGen.getInstance().getUniqueId();
     }
 
     /** Constrictor para alumno sin opcion tecnica */
     public Alumno(String nombre, int area, char grupo) {
+        this.id = IdGen.getInstance().getUniqueId();
         this.nombre = nombre;
         this.area = area;
         this.grupo = grupo;
@@ -27,6 +27,7 @@ public class Alumno {
 
     /** Constructor para alumno con opcion tecnica */
     public Alumno(String nombre, String opcionTecnica, int area, char grupo) {
+        this.id = IdGen.getInstance().getUniqueId();
         this.nombre = nombre;
         this.opcionTecnica = opcionTecnica;
         this.area = area;
@@ -35,6 +36,7 @@ public class Alumno {
 
     /** calcula el promedio de las materias inscritas del alumno */
     public Double calculatePromedio() {
+        Enumeration<Integer> enu = materiacalif.elements();
         int temp = 0;
         while (enu.hasMoreElements()) {
             temp = temp + (int) enu.nextElement();
@@ -82,14 +84,6 @@ public class Alumno {
         this.promedio = promedio;
     }
 
-    public Enumeration<Integer> getEnu() {
-        return enu;
-    }
-
-    public void setEnu(Enumeration<Integer> enu) {
-        this.enu = enu;
-    }
-
     public int getArea() {
         return area;
     }
@@ -114,7 +108,6 @@ public class Alumno {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("-----------------");
         sb.append("ID : ").append(this.id).append("\n");
         sb.append("Nombre : ").append(this.nombre).append("\n");
         sb.append("-----------------");

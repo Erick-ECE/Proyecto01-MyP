@@ -1,3 +1,7 @@
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.NoSuchElementException;
+
 //import java.util.Set;
 
 //import java.util.Scanner;
@@ -9,7 +13,7 @@ public class SesionAlumno implements MenuSesion<Alumno> {
         int opcion;
         String nombreUsuario = usuario.nombre;
         
-        System.out.println("Binevenido"+ nombreUsuario +"!");
+        System.out.println("Binevenido  "+ nombreUsuario +"!");
 
         do{
             System.out.println("Ingrese el numero de la opción a realizar:");
@@ -23,11 +27,18 @@ public class SesionAlumno implements MenuSesion<Alumno> {
             switch (opcion) {
                 case 1:
                     System.out.println("Ingrese el numero de la opcion deseada:");
-                    String[] keys = (String[]) usuario.getMateriacalif().keySet().toArray();
-                    System.out.println("    1.-" + keys[0]);
-                    System.out.println("    2.-" + keys[1]);
+                    Hashtable<String,Integer> materias = usuario.getMateriacalif();
+                    int j = 1;  
+                    String[] keys= new String[2]; 
+
+                    for (Map.Entry<String, Integer> entry : materias.entrySet()) {
+                        String key = entry.getKey();
+                        keys[j-1] = key;
+                        System.out.println("    "+j+".-" + key);
+                        j++;
+                    }   
                     String materia = (scr.nextInt() == 1) ? keys[0] : keys[1];
-                    System.out.printf("Calificacion %s: %d",materia, usuario.getMateriacalif().get(materia)); 
+                    System.out.printf("Calificacion %s: %d \n",materia, usuario.getMateriacalif().get(materia)); 
                     break;
                 
                 case 2:
@@ -35,7 +46,12 @@ public class SesionAlumno implements MenuSesion<Alumno> {
                     break;
                 
                 case 3:
-                    InscribeOpcionTecnica.inscribeOpcionTecnica(usuario);                  
+                    try {
+                        InscribeOpcionTecnica.inscribeOpcionTecnica(usuario);    
+                    } catch (NoSuchElementException e) {
+                        System.out.println("Element Exception");
+                    }
+                    
                     break;
 
                 default:

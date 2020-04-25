@@ -2,10 +2,10 @@ import java.util.Hashtable;
 
 public class Profesor {
     int id;
-    String nombre;
-    Hashtable<Integer, Integer> id_Calif;
+    String nombre ="";
+    Hashtable<Integer, Integer> id_Calif = new Hashtable<>();
     int area;
-    String materia;
+    String materia = "";
     char grupo;
     boolean instructor = false;
 
@@ -14,10 +14,12 @@ public class Profesor {
     }
 
     public Profesor(String nombre) {
+        this.id = IdGen.getInstance().getUniqueId();
         this.nombre = nombre;
     }
 
     public Profesor(String nombre, int area, String materia, char grupo) {
+        this.id = IdGen.getInstance().getUniqueId();
         this.nombre = nombre;
         this.area = area;
         this.materia = materia;
@@ -74,11 +76,11 @@ public class Profesor {
     }
 
     public void agregaAlumnoALista(Alumno a) { // agrega alumno a lista con calificacion 0
-        id_Calif.put(a.id, 0);
+        id_Calif.put(a.getId(), 0);
     }
 
     public void eliminaAlumnoLista(Alumno a){
-        id_Calif.remove(a.id);
+        id_Calif.remove(a.getId());
     }
 
     public void asignaCalifByID(int id, int calif) {
@@ -86,7 +88,7 @@ public class Profesor {
     }
 
     public void asignaCalifAlumno(Alumno a, int calif) {
-        id_Calif.put(a.id, calif);
+        id_Calif.put(a.getId(), calif);
     }
 
     public void autoAsignarArea(){ // si no pertenece a ninguna area entonces es instructor
