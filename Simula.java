@@ -8,6 +8,34 @@ public class Simula {
     public void agregaMaestros(){
         // crear un profesor por cada materia y opcion tecnica y contratarlos
 
+        // Profesores de cada materia:
+        Profesor p1 = new Profesor("Canek", 1, "Fisica", 'A');
+        Profesor p2 = new Profesor("Galaviz", 1, "Matematicas", 'A');
+        Profesor p3 = new Profesor("Gerardo", 2, "Biologia", 'A');
+        Profesor p4 = new Profesor("Hector", 2, "Quimica", 'A');
+        Profesor p5 = new Profesor("Karla", 3, "Historia", 'A');
+        Profesor p6 = new Profesor("Paulo", 3, "Ciencias Sociales", 'A');
+        Profesor p7 = new Profesor("Rosa", 4, "Filosofia", 'A');
+        Profesor p8 = new Profesor("Rincon", 4, "Artes Plasticas", 'A');
+        ContrataProfesor.contratarDefault(p1);
+        ContrataProfesor.contratarDefault(p2);
+        ContrataProfesor.contratarDefault(p3);
+        ContrataProfesor.contratarDefault(p4);
+        ContrataProfesor.contratarDefault(p5);
+        ContrataProfesor.contratarDefault(p6);
+        ContrataProfesor.contratarDefault(p7);
+        ContrataProfesor.contratarDefault(p8);
+
+        // Profesores Opciones tecnicas
+        Profesor t1 = new Profesor("Lola", 0, "Agente de viajes y hotelería", 'A');
+        Profesor t2 = new Profesor("Dexter", 0, "Fotógrafo, Laboratorista y Prensa", 'A');
+        Profesor t3 = new Profesor("Gulliver", 0, "Nutriólogo", 'A');
+        Profesor t4 = new Profesor("Homero", 0, "Laboratorista Químico", 'A');
+        ContrataProfesor.contratarDefault(t1);
+        ContrataProfesor.contratarDefault(t2);
+        ContrataProfesor.contratarDefault(t3);
+        ContrataProfesor.contratarDefault(t4);
+
     }
 
     // despues agregar alumnos
