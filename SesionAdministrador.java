@@ -1,6 +1,7 @@
 import java.util.Hashtable;
 import java.util.Map;
 //import java.util.Scanner;
+import java.util.Scanner;
 
 
 public class SesionAdministrador implements MenuSesion<Administrador> {
@@ -129,7 +130,8 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
 
                 case 8: // contratar profesor
                     System.out.println("Ingresa el nombre del profesor:");
-                    String nombreProfe = scr.nextLine();
+                    Scanner s = new Scanner(System.in);
+                    String nombreProfe = s.nextLine();
                     
                     ContrataProfesor.contratar(new Profesor(nombreProfe));
                     
@@ -151,7 +153,7 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
             }
             
             }while(opcion!=10);
-        scr.close();
+        //scr.close();
 
 
     }

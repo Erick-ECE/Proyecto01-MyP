@@ -46,12 +46,7 @@ public class SesionAlumno implements MenuSesion<Alumno> {
                     break;
                 
                 case 3:
-                    try {
-                        InscribeOpcionTecnica.inscribeOpcionTecnica(usuario);    
-                    } catch (NoSuchElementException e) {
-                        System.out.println("Element Exception");
-                    }
-                    
+                    InscribeOpcionTecnica.inscribeOpcionTecnica(usuario);    
                     break;
 
                 default:

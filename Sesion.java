@@ -68,7 +68,7 @@ public class Sesion {
             }
             
             }while(opcion!=4);
-        scr.close();
+        //scr.close();
 
     }
 

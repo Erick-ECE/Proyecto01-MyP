@@ -5,10 +5,10 @@ public class DespedirProfesor implements Eliminar{
     public void elimina(int id_profesor) {
         // Implementar Baja del Profesor
         // Busca profesor por id y eliminalo de las listas
-       Profesor[] lista = admin.profesores;
+       Profesor[] lista = admin.getProfesores();
 
         for(int i = 0; i < lista.length; i++){
-            if(lista[i].id == id_profesor){
+            if(lista[i].getId() == id_profesor){
                 // shifting elements
                 for(int j = i; j < lista.length - 1; j++){
                     lista[j] = lista[j+1];
