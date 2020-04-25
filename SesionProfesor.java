@@ -55,7 +55,7 @@ public class SesionProfesor implements MenuSesion<Profesor> {
             }
             
             }while(opcion!=3);
-        scr.close();
+        
 
     }
 

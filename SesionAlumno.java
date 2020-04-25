@@ -1,6 +1,6 @@
 import java.util.Hashtable;
 import java.util.Map;
-import java.util.NoSuchElementException;
+
 
 //import java.util.Set;
 
@@ -54,7 +54,7 @@ public class SesionAlumno implements MenuSesion<Alumno> {
             }
             
             }while(opcion!=4);
-        scr.close();
+        
 
     }
 
