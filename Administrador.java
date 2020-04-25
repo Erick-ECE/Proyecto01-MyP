@@ -11,8 +11,13 @@ public class Administrador {
     ArrayList<Alumno> cienciasSociales;
     ArrayList<Alumno> humanidadesYartes;
     //-----------------
-    // lista alumnos con opcion tecnica:
-    Hashtable<String,String> opcionesTecnicas; // <NombreAlumno, OpcionTecnica>
+    // lista alumnos por opcion tecnica:
+    ArrayList<Alumno> viajesyhoteleria; // Agente de viajes y hotelería.
+    ArrayList<Alumno> fotoLabPrensa; // Fotógrafo, Laboratorista y Prensa.
+    ArrayList<Alumno> nutriologo; // Nutriólogo.
+    ArrayList<Alumno> labQuimico; // Laboratorista Químico.
+
+    
 
 
     // Patron Singleton 
@@ -77,13 +82,39 @@ public class Administrador {
         Administrador.instance = instance;
     }
 
-    public Hashtable<String, String> getOpcionesTecnicas() {
-        return opcionesTecnicas;
+    public ArrayList<Alumno> getViajesyhoteleria() {
+        return viajesyhoteleria;
     }
 
-    public void setOpcionesTecnicas(Hashtable<String, String> opcionesTecnicas) {
-        this.opcionesTecnicas = opcionesTecnicas;
+    public void setViajesyhoteleria(ArrayList<Alumno> viajesyhoteleria) {
+        this.viajesyhoteleria = viajesyhoteleria;
     }
+
+    public ArrayList<Alumno> getFotoLabPrensa() {
+        return fotoLabPrensa;
+    }
+
+    public void setFotoLabPrensa(ArrayList<Alumno> fotoLabPrensa) {
+        this.fotoLabPrensa = fotoLabPrensa;
+    }
+
+    public ArrayList<Alumno> getNutriologo() {
+        return nutriologo;
+    }
+
+    public void setNutriologo(ArrayList<Alumno> nutriologo) {
+        this.nutriologo = nutriologo;
+    }
+
+    public ArrayList<Alumno> getLabQuimico() {
+        return labQuimico;
+    }
+
+    public void setLabQuimico(ArrayList<Alumno> labQuimico) {
+        this.labQuimico = labQuimico;
+    }
+
+    
 
     
 
