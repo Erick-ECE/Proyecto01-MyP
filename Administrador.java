@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
-
+/***
+ * Clase Administrador que implementa el patron de diseño Singleton
+ */
 public class Administrador {
-    int MAX_VACANTES = 20;// numero maximo de vacantes de profesores
+    final int MAX_VACANTES = 20;// numero maximo de vacantes de profesores
+    static int PROFES_CONTRATADOS = 0;
     Profesor[] profesores = new Profesor[MAX_VACANTES]; 
     Hashtable<Integer,Alumno> alumnosTotales; // <ID_alumno, Alumno>
     // listas por area:

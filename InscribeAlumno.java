@@ -77,14 +77,11 @@ public class InscribeAlumno {
         }
         
          
-
+        //mensaje de agregado
+        System.out.println("Alumno agregado! (guarda tu id para acceder despues)");
+        System.out.println(a);
         
     }
 
-    // metodo a considerar implementar
-   /* public String mensajeOk(){
-        return "ok(?)";
-    }
-    */
 
 }

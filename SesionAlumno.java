@@ -28,17 +28,14 @@ public class SesionAlumno implements MenuSesion<Alumno> {
                     System.out.println("    2.-" + keys[1]);
                     String materia = (scr.nextInt() == 1) ? keys[0] : keys[1];
                     System.out.printf("Calificacion %s: %d",materia, usuario.getMateriacalif().get(materia)); 
-                    
                     break;
                 
                 case 2:
                     System.out.println("Promedio: "+ usuario.calculatePromedio());
-                    
                     break;
                 
                 case 3:
-                    InscribeOpcionTecnica.inscribeOpcionTecnica(usuario);
-                    
+                    InscribeOpcionTecnica.inscribeOpcionTecnica(usuario);                  
                     break;
 
                 default:

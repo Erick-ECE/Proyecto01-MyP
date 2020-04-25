@@ -1,6 +1,7 @@
 import java.util.Hashtable;
 import java.util.Map;
-import java.util.Scanner;
+//import java.util.Scanner;
+
 
 public class SesionAdministrador implements MenuSesion<Administrador> {
 
@@ -8,6 +9,7 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
     public void opcionesMenu(Administrador usuario) {
         int opcion;
         ContextoElimina c = null;
+        ContextoConsulta cons = null;
         
         System.out.println("Binevenido Administrador!");
 
@@ -27,7 +29,9 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
             opcion = scr.nextInt();
     
             switch (opcion) {
-                case 1:
+                
+                case 1: 
+                    // consultar lista de alumnos inscritos
                     Hashtable<Integer, Alumno> alumnos = usuario.getAlumnosTotales();
                    
                     for (Map.Entry<Integer, Alumno> entry : alumnos.entrySet()) {
@@ -39,34 +43,46 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
                     
                     break;
                 
-                case 2:
+                case 2: 
+                    // consultar alumnos por area (Strategy)
+                    System.out.println("Area de Estudio :");
+                    System.out.println("    1.-Físico-Matemáticas.");
+                    System.out.println("    2.-Ciencias Biológicas y de la Salud.");
+                    System.out.println("    3.-Ciencias Sociales.");
+                    System.out.println("    4.-Humanidades y Artes.");
+                    int areaAconsultar = scr.nextInt();
+
+                    cons = new ContextoConsulta(new ConsultaPorArea());
+                    cons.ejecutaConsulta(areaAconsultar);
                     
                     break;
                 
                 case 3:
-                    Hashtable<String,String> ot = usuario.getOpcionesTecnicas();
+                    // consulta lista de alumnos por opcion tecnica (strategy)
+                    System.out.println("Selecciona una opción técnica a consultar :");
+                    System.out.println("    1.-Agente de viajes y hotelería.");
+                    System.out.println("    2.-Fotógrafo, Laboratorista y Prensa.");
+                    System.out.println("    3.-Nutriólogo.");
+                    System.out.println("    4.-Laboratorista Químico.");
+                    int ocionTecnica = scr.nextInt();
+                    cons = new ContextoConsulta(new ConsultaPorOpcionTecnica());
+                    cons.ejecutaConsulta(ocionTecnica);
                     
-                    for (Map.Entry<String, String> entry : ot.entrySet()) {
-                        String key = entry.getKey();
-                        String value = entry.getValue();
-                        System.out.println ("Nombe: " + key + " OpcionTecnica: " + value);
-                    }
-                    
-                     
                     
                     break;
                 
-                case 4:
+                case 4: // consultar lista profesores
+
                     Iterador<Profesor> ite = new Iterador<>(usuario.getProfesores());
                     ite.forEachRemaining(System.out::println);      
                     
                     break;
 
-                case 5:
+                case 5: // graduar alumno
                     
                     break;
 
-                case 6:
+                case 6: // inscribir alumno
                     System.out.println("Ingrese los datos que se piden del Alumno");
                     System.out.println("Nombre:");
                     String nombreNuevo = scr.nextLine();
@@ -81,11 +97,6 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
 
                      //* Inscribe Alumno Estatico */
                      InscribeAlumno.inscribir(new Alumno(nombreNuevo,areaAlumno,nuevoGrupo));
-
-                    // *Sí InscribeAlumno no es estatico:*
-                    //Alumno nuevoAlumno = new Alumno(nombreNuevo,areaAlumno,nuevoGrupo);
-                    //InscribeAlumno ins = new InscribeAlumno();
-                    //ins.inscribir(nuevoAlumno);
 
                     
                     break;
@@ -112,7 +123,11 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
             
                     break;
 
-                case 8:
+                case 8: // contratar profesor
+                    System.out.println("Ingresa el nombre del profesor:");
+                    String nombreProfe = scr.nextLine();
+                    
+                    ContrataProfesor.contratar(new Profesor(nombreProfe));
                     
                     break;
 
