@@ -10,7 +10,9 @@ public class ContrataProfesor {
             // seleccionamos de manera aletoria un grupo y materia
             Random random = new Random();
             String materiaAleatoria;
-            char grupoRandom = new Random().nextBoolean() ? 'A' : 'B';
+            //char grupoRandom = new Random().nextBoolean() ? 'A' : 'B'; //
+            char grupoRandom = 'B'; // ya que se llenara por default el grupo A en simulacion
+
             ArrayList<String> materias = new ArrayList<>();
 
             materias.add("Fisica");
@@ -37,6 +39,18 @@ public class ContrataProfesor {
             System.out.println("Lo siento, ya no hay vacantes");
         }
         
+    }
+
+    public static void contratarDefault(Profesor p){
+        if (Administrador.PROFES_CONTRATADOS != admin.MAX_VACANTES) {
+            // Lo agregamos a la lista de profesores
+            admin.profesores[Administrador.PROFES_CONTRATADOS++] = p;
+            System.out.println("Profesor contratado!");
+            System.out.println(p);
+        }else{
+            System.out.println("Lo siento, ya no hay vacantes");
+        }
+
     }
 
 }

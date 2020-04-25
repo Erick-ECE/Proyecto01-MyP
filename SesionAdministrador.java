@@ -79,6 +79,10 @@ public class SesionAdministrador implements MenuSesion<Administrador> {
                     break;
 
                 case 5: // graduar alumno
+                    System.out.println("Ingresa el id del alumno a graduar");
+                    int idGraduado = scr.nextInt();
+                    
+                    GraduarAlumno.graduar(usuario.alumnosTotales.get(idGraduado));
                     
                     break;
 

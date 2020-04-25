@@ -1,12 +1,13 @@
-import java.util.HashMap;
+import java.util.Hashtable;
 
 public class Profesor {
     int id;
     String nombre;
-    HashMap<Integer, Integer> id_Calif;
+    Hashtable<Integer, Integer> id_Calif;
     int area;
     String materia;
     char grupo;
+    boolean instructor = false;
 
     public Profesor() {
         this.id = IdGen.getInstance().getUniqueId();
@@ -40,11 +41,11 @@ public class Profesor {
         this.nombre = nombre;
     }
 
-    public HashMap<Integer, Integer> getId_Calif() {
+    public Hashtable<Integer, Integer> getId_Calif() {
         return id_Calif;
     }
 
-    public void setId_Calif(HashMap<Integer, Integer> id_Calif) {
+    public void setId_Calif(Hashtable<Integer, Integer> id_Calif) {
         this.id_Calif = id_Calif;
     }
 
@@ -72,8 +73,12 @@ public class Profesor {
         this.grupo = grupo;
     }
 
-    public void agregaAlumnoALista(Alumno a) {
+    public void agregaAlumnoALista(Alumno a) { // agrega alumno a lista con calificacion 0
         id_Calif.put(a.id, 0);
+    }
+
+    public void eliminaAlumnoLista(Alumno a){
+        id_Calif.remove(a.id);
     }
 
     public void asignaCalifByID(int id, int calif) {
@@ -84,7 +89,7 @@ public class Profesor {
         id_Calif.put(a.id, calif);
     }
 
-    public void autoAsignarArea(){
+    public void autoAsignarArea(){ // si no pertenece a ninguna area entonces es instructor
         switch (this.materia) {
             case "Fisica":
                 this.area= 1;
@@ -118,6 +123,7 @@ public class Profesor {
                 break;
         
             default:
+                this.instructor = true; // es instructor de opcion tecnica 
                 break;
         }
     }
